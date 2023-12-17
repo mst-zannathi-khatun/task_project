@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/elevatedbutton_widget.dart';
-import '../../widgets/textfromfiled_widget.dart';
-import '../utils/text_style.dart';
+import '../../../widgets/elevatedbutton_widget.dart';
+import '../../../widgets/textfromfiled_widget.dart';
+import '../../utils/text_style.dart';
 
-class SetPasswordScreen extends StatefulWidget {
-  const SetPasswordScreen({super.key});
+class EmailVerificationScreen extends StatefulWidget {
+  const EmailVerificationScreen({super.key});
   @override
-  State<SetPasswordScreen> createState() => _SetPasswordScreenState();
+  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
 }
 
-class _SetPasswordScreenState extends State<SetPasswordScreen> {
+class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,13 +20,11 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Set Password Screen", style: head1TextStyle,),
+            Text("Your Email Address", style: head1TextStyle,),
             const SizedBox(height: 2,),
-            const Text("Minimun 6 digit passwords"),
+            const Text("A 6 digit verification pin will send to your email address"),
             const SizedBox(height: 8,),
-            const TextFromFiledWidget(hintText: 'Password',),
-            const SizedBox(height: 8,),
-            const TextFromFiledWidget(hintText: 'CPassword',),
+            const TextFromFiledWidget(hintText: 'Email Address',),
             const SizedBox(height: 8,),
             const ElevatedButtonWidget(),
             const SizedBox(height: 2,),

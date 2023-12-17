@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:task_project/ui/screen/singup_screen.dart';
+import 'package:task_project/ui/screen/task/bottomnavigation_screen.dart';
 
 void main(){
   runApp(const TaskProject());
@@ -12,7 +12,7 @@ class TaskProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SingUpScreen(),
+      home: BottomNavigationScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

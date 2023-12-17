@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/ui/utils/text_style.dart';
-import '../../widgets/elevatedbutton_widget.dart';
-import '../../widgets/textfromfiled_widget.dart';
-import '../utils/apps_colors.dart';
+import '../../../widgets/elevatedbutton_widget.dart';
+import '../../../widgets/textfromfiled_widget.dart';
+import '../../utils/apps_colors.dart';
 
 
 class LogInScreen extends StatefulWidget {
