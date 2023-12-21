@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_project/ui/screen/auth/singup_screen.dart';
 
 import '../../../widgets/elevatedbutton_widget.dart';
 import '../../../widgets/textfromfiled_widget.dart';
@@ -29,7 +30,11 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'CPassword',),
             const SizedBox(height: 8,),
-            const ElevatedButtonWidget(),
+             ElevatedButtonWidget(
+               onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const SingUpScreen()));
+               },
+             ),
             const SizedBox(height: 2,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,

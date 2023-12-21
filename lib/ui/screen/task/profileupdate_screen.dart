@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+
 import '../../../widgets/elevatedbutton_widget.dart';
 import '../../../widgets/textfromfiled_widget.dart';
 import '../../utils/text_style.dart';
-import '../task/bottomnavigation_screen.dart';
 
-class SingUpScreen extends StatefulWidget {
-  const SingUpScreen({super.key});
+class ProfileUpdateScreen extends StatefulWidget {
+  const ProfileUpdateScreen({super.key});
+
   @override
-  State<SingUpScreen> createState() => _SingUpScreenState();
+  State<ProfileUpdateScreen> createState() => _ProfileUpdateScreenState();
 }
 
-class _SingUpScreenState extends State<SingUpScreen> {
+class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,9 @@ class _SingUpScreenState extends State<SingUpScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Join With Us", style: head1TextStyle,),
+            Text("Update Your Profile", style: head1TextStyle,),
+            const SizedBox(height: 8,),
+            const TextFromFiledWidget(hintText: 'Photo',),
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'Email',),
             const SizedBox(height: 8,),
@@ -32,20 +35,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'Password',),
             const SizedBox(height: 8,),
-             ElevatedButtonWidget(
-               onPressed: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const BottomNavigationScreen ()));
-               },
-             ),
-            const SizedBox(height: 5,),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Have Account?"),
-                TextButton(onPressed: (){}, child: const Text("Sing In"))
-              ],
-            ),
+            const ElevatedButtonWidget(),
           ],
         ),
       ),

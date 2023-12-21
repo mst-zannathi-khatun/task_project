@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:task_project/ui/screen/auth/login_screen.dart';
 
 import '../../../widgets/elevatedbutton_widget.dart';
 import '../../../widgets/textfromfiled_widget.dart';
 import '../../utils/text_style.dart';
+import 'otpverification_screen.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});
@@ -26,14 +28,20 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'Email Address',),
             const SizedBox(height: 8,),
-            const ElevatedButtonWidget(),
+             ElevatedButtonWidget(
+               onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const OTPVerificationScreen()));
+               },
+             ),
             const SizedBox(height: 2,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Have Account?"),
-                TextButton(onPressed: (){}, child: const Text("Sing In"))
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const LogInScreen()));
+                }, child: const Text("Sing In"))
               ],
             ),
           ],

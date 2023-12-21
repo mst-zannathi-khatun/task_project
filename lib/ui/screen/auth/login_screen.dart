@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:task_project/ui/screen/auth/setpassword_screen.dart';
+import 'package:task_project/ui/screen/auth/singup_screen.dart';
 import 'package:task_project/ui/utils/text_style.dart';
 import '../../../widgets/elevatedbutton_widget.dart';
 import '../../../widgets/textfromfiled_widget.dart';
-import '../../utils/apps_colors.dart';
-
+import 'emailverification_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -28,16 +29,24 @@ class _LogInScreenState extends State<LogInScreen> {
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'Password',),
             const SizedBox(height: 8,),
-            const ElevatedButtonWidget(),
+            ElevatedButtonWidget(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const EmailVerificationScreen()));
+              },
+            ),
             const SizedBox(height: 32,),
-            TextButton(onPressed: (){}, child: const Text("Forget Password?")),
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SetPasswordScreen()));
+            }, child: const Text("Forget Password?")),
             const SizedBox(height: 2,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Don't Have Account?"),
-                TextButton(onPressed: (){}, child: const Text("Sing Up"))
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const SingUpScreen()));
+                }, child: const Text("Sing Up"))
               ],
             ),
           ],
