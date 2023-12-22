@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:task_project/ui/screen/auth/setpassword_screen.dart';
-
-import '../../../widgets/elevatedbutton_widget.dart';
 import '../../utils/text_style.dart';
+import '../../widgets/elevatedbutton_widget.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
   const OTPVerificationScreen({super.key});

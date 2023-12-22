@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/cardlistview_widget.dart';
+import '../../widgets/cardlistview_widget.dart';
 
 class CompletedTaskScreen extends StatefulWidget {
   const CompletedTaskScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_project/ui/screen/auth/login_screen.dart';
+import 'package:task_project/ui/screen/auth/splashscreen.dart';
 
 void main(){
   runApp(const TaskProject());
@@ -11,7 +11,7 @@ class TaskProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LogInScreen(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

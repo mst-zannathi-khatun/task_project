@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/ui/screen/auth/login_screen.dart';
 import 'package:task_project/ui/screen/auth/singup_screen.dart';
-
-import '../../../widgets/elevatedbutton_widget.dart';
-import '../../../widgets/textfromfiled_widget.dart';
 import '../../utils/text_style.dart';
+import '../../widgets/elevatedbutton_widget.dart';
+import '../../widgets/textfromfiled_widget.dart';
 
 
 class SetPasswordScreen extends StatefulWidget {

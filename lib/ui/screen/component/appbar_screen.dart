@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/ui/screen/auth/login_screen.dart';
-import 'package:task_project/ui/screen/task/profileupdate_screen.dart';
+import 'package:task_project/ui/screen/auth/profileupdate_screen.dart';
 import 'package:task_project/ui/utils/apps_colors.dart';
 
 AppBar taskAppBar (BuildContext context){

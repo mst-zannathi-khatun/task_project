@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../widgets/elevatedbutton_widget.dart';
-import '../../../widgets/textfromfiled_widget.dart';
 import '../../utils/text_style.dart';
-import 'bottomnavigation_screen.dart';
+import '../../widgets/elevatedbutton_widget.dart';
+import '../../widgets/textfromfiled_widget.dart';
+import '../component/bottomnavigation_screen.dart';
 
 class CreateTaskScreen extends StatefulWidget {
   const CreateTaskScreen({super.key});

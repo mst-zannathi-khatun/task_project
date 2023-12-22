@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:task_project/ui/screen/task/progresstask_screen.dart';
 import 'package:task_project/ui/utils/apps_colors.dart';
 import 'appbar_screen.dart';
-import 'cancelledtask_screen.dart';
-import 'completedtask_screen.dart';
-import 'createtask_screen.dart';
-import 'newtask_screen.dart';
+import '../task/cancelledtask_screen.dart';
+import '../task/completedtask_screen.dart';
+import '../task/createtask_screen.dart';
+import '../task/newtask_screen.dart';
 
 
 class BottomNavigationScreen extends StatefulWidget {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../widgets/cardlistview_widget.dart';
+import '../../widgets/cardlistview_widget.dart';
 
 class CancelledTaskScreen extends StatefulWidget {
   const CancelledTaskScreen({super.key});

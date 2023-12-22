@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/ui/screen/auth/login_screen.dart';
-import '../../../widgets/elevatedbutton_widget.dart';
-import '../../../widgets/textfromfiled_widget.dart';
 import '../../utils/text_style.dart';
-import '../task/bottomnavigation_screen.dart';
+import '../../widgets/elevatedbutton_widget.dart';
+import '../../widgets/textfromfiled_widget.dart';
+import '../component/bottomnavigation_screen.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({super.key});

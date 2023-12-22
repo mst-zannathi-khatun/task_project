@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../widgets/cardlistview_widget.dart';
 
-import '../../../widgets/cardlistview_widget.dart';
 
 class NewTaskScreen extends StatefulWidget {
   const NewTaskScreen({super.key});

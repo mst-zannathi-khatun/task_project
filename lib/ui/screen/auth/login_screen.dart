@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:task_project/ui/screen/auth/setpassword_screen.dart';
 import 'package:task_project/ui/screen/auth/singup_screen.dart';
 import 'package:task_project/ui/utils/text_style.dart';
-import '../../../widgets/elevatedbutton_widget.dart';
-import '../../../widgets/textfromfiled_widget.dart';
+import '../../widgets/elevatedbutton_widget.dart';
+import '../../widgets/textfromfiled_widget.dart';
 import 'emailverification_screen.dart';
 
 class LogInScreen extends StatefulWidget {

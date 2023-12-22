@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../ui/utils/text_style.dart';
+import '../utils/text_style.dart';
 
 class CardListViewWidget extends StatelessWidget {
   const CardListViewWidget({
