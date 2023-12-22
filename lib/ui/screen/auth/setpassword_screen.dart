@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_project/ui/screen/auth/login_screen.dart';
 import 'package:task_project/ui/screen/auth/singup_screen.dart';
 
 import '../../../widgets/elevatedbutton_widget.dart';
@@ -41,7 +42,9 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Have Account?"),
-                TextButton(onPressed: (){}, child: const Text("Sing In"))
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const LogInScreen()));
+                }, child: const Text("Sing In"))
               ],
             ),
           ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../../widgets/elevatedbutton_widget.dart';
 import '../../../widgets/textfromfiled_widget.dart';
 import '../../utils/text_style.dart';
+import 'bottomnavigation_screen.dart';
 
 class CreateTaskScreen extends StatefulWidget {
   const CreateTaskScreen({super.key});
@@ -19,15 +19,21 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
         padding: const EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Create Your Task", style: head1TextStyle,),
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'Title',),
             const SizedBox(height: 8,),
-            const TextFromFiledWidget(hintText: 'Descriptions',),
+            const TextFromFiledWidget(
+              hintText: 'Descriptions',
+              maxLines: 5,
+            ),
             const SizedBox(height: 8,),
-            const ElevatedButtonWidget(),
+            ElevatedButtonWidget(
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const BottomNavigationScreen()));
+              },
+            ),
           ],
         ),
       ),

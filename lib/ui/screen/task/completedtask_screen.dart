@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../widgets/cardlistview_widget.dart';
 
 class CompletedTaskScreen extends StatefulWidget {
   const CompletedTaskScreen({super.key});
@@ -9,6 +10,19 @@ class CompletedTaskScreen extends StatefulWidget {
 class _CompletedTaskScreenState extends State<CompletedTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(4),
+        child: Column(
+          children: const [
+            CardListViewWidget(),
+            SizedBox(height: 8,),
+            CardListViewWidget(),
+            SizedBox(height: 8,),
+          ],
+        ),
+      ),
+    );
   }
 }
+

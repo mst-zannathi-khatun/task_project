@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_project/ui/screen/auth/login_screen.dart';
 
 import '../../../widgets/elevatedbutton_widget.dart';
 import '../../../widgets/textfromfiled_widget.dart';
@@ -35,7 +36,11 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
             const SizedBox(height: 8,),
             const TextFromFiledWidget(hintText: 'Password',),
             const SizedBox(height: 8,),
-            const ElevatedButtonWidget(),
+             ElevatedButtonWidget(
+               onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const LogInScreen()));
+               },
+             ),
           ],
         ),
       ),

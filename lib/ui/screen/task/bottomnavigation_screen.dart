@@ -4,6 +4,7 @@ import 'package:task_project/ui/utils/apps_colors.dart';
 import 'appbar_screen.dart';
 import 'cancelledtask_screen.dart';
 import 'completedtask_screen.dart';
+import 'createtask_screen.dart';
 import 'newtask_screen.dart';
 
 
@@ -16,21 +17,21 @@ class BottomNavigationScreen extends StatefulWidget {
 
 class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   int selectedIndex = 0;
-
   final List<Widget> screens = [
-    const CancelledTaskScreen(),
-    const CompletedTaskScreen(),
     const NewTaskScreen(),
+    const CompletedTaskScreen(),
+    const CancelledTaskScreen(),
     const ProgressTaskScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TaskAppBar(),
+      appBar: taskAppBar(context),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor:primaryColor,
         unselectedItemColor: greyColor,
-        selectedItemColor: primaryColor,
+        selectedItemColor: Colors.white,
         showUnselectedLabels: true,
         showSelectedLabels: true,
         onTap: (value) {
@@ -40,7 +41,8 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         },
         currentIndex: selectedIndex,
         elevation: 4,
-        items: [
+        type: BottomNavigationBarType.fixed,
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.new_label_outlined), label: "New Task"),
           BottomNavigationBarItem(
@@ -49,6 +51,13 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.incomplete_circle), label: "Progress"),
         ],
+      ),
+      body: screens[selectedIndex],
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: primaryColor,
+        child: const Icon(Icons.add),
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateTaskScreen()));
+        },
       ),
     );
   }

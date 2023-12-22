@@ -28,9 +28,9 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
             const Text("A 6 digit verification pin will send to your email address"),
             const SizedBox(height: 8,),
             OTPTextField(
-              length: 5,
+              length: 6,
               width: MediaQuery.of(context).size.width,
-              fieldWidth: 80,
+              fieldWidth: 60,
               style: const TextStyle(
                   fontSize: 17
               ),

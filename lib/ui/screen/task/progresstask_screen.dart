@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../widgets/cardlistview_widget.dart';
+
 class ProgressTaskScreen extends StatefulWidget {
   const ProgressTaskScreen({super.key});
   @override
@@ -9,6 +11,18 @@ class ProgressTaskScreen extends StatefulWidget {
 class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(4),
+        child: Column(
+          children: const [
+            CardListViewWidget(),
+            SizedBox(height: 8,),
+            CardListViewWidget(),
+            SizedBox(height: 8,),
+          ],
+        ),
+      ),
+    );
   }
 }
