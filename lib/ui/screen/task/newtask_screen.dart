@@ -14,27 +14,29 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(4),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 60,
-              width: double.infinity,
-              child: Row(
-                children: [
-                  TopCardWidget(),
-                  SizedBox(width: 8,),
-                  TopCardWidget(),
-                  SizedBox(width: 8,),
-                  TopCardWidget(),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 60,
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    TopCardWidget(),
+                    SizedBox(width: 8,),
+                    TopCardWidget(),
+                    SizedBox(width: 8,),
+                    TopCardWidget(),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 8,),
-            CardListViewWidget(),
-            SizedBox(height: 8,),
-            CardListViewWidget(),
-            SizedBox(height: 8,),
-          ],
+              SizedBox(height: 8,),
+              CardListViewWidget(),
+              SizedBox(height: 8,),
+              CardListViewWidget(),
+              SizedBox(height: 8,),
+            ],
+          ),
         ),
       ),
     );
@@ -56,8 +58,8 @@ class TopCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("09"),
-            Text("Completed"),
+            Expanded(child: Text("09")),
+            Expanded(child: Text("Completed")),
           ],
         ),
       ),

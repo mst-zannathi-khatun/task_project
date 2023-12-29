@@ -19,6 +19,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
   final TextEditingController passwordETController = TextEditingController();
 
   final GlobalKey<FormState> _fromKey = GlobalKey<FormState>();
+  bool _inProgress = false;
 
   @override
   Widget build(BuildContext context) {
@@ -105,38 +106,45 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 const SizedBox(
                   height: 8,
                 ),
-                ElevatedButtonWidget(
-                  onPressed: () async {
-                    if (_fromKey.currentState!.validate()) {
-                      final result = await NetworkUtils().postMethod(
-                        "https://task.teamrabbil.com/api/v1/registration",
-                        body: {
-                          'email': emailETController.text.trim(),
-                          'firstName': mobileETController.text.trim(),
-                          'lastName': passwordETController.text.trim(),
-                          'mobile': firstNameETController.text.trim(),
-                          'password': lastNameETController.text,
+                if (_inProgress)
+                  const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.green,
+                    ),
+                  )
+                else
+                  ElevatedButtonWidget(
+                    onPressed: () async {
+                      if (_fromKey.currentState!.validate()) {
+                        _inProgress = true;
+                        setState(() {});
+                        final result = await HTTPNetWorkUtils().postMethod(
+                            "https://task.teamrabbil.com/api/v1/registration",
+                            body: {
+                              "email": emailETController.text.trim(),
+                              "firstName": firstNameETController.text.trim(),
+                              "lastName": lastNameETController.text.trim(),
+                              "mobile": mobileETController.text.trim(),
+                              "password": passwordETController.text,
+                            });
+                        print(result);
+                        _inProgress = false;
+                        setState(() {});
+                        if (result != null && result['status'] == 'success') {
+                          emailETController.clear();
+                          firstNameETController.clear();
+                          lastNameETController.clear();
+                          mobileETController.clear();
+                          passwordETController.clear();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("Registration Success")));
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("Registration Faile")));
                         }
-                        );
-
-                      print(result);
-
-                      if (result != null && result['status'] == 'success') {
-                        emailETController.clear();
-                        mobileETController.clear();
-                        passwordETController.clear();
-                        firstNameETController.clear();
-                        lastNameETController.clear();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text("Registration Succfully")));
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("Registration Fail")));
                       }
-                    }
-                  },
-                ),
+                    },
+                  ),
                 const SizedBox(
                   height: 5,
                 ),

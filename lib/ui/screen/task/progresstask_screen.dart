@@ -13,13 +13,15 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(4),
-        child: Column(
-          children: const [
-            CardListViewWidget(),
-            SizedBox(height: 8,),
-            CardListViewWidget(),
-            SizedBox(height: 8,),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              CardListViewWidget(),
+              SizedBox(height: 8,),
+              CardListViewWidget(),
+              SizedBox(height: 8,),
+            ],
+          ),
         ),
       ),
     );

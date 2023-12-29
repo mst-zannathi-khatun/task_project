@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_project/ui/screen/auth/splashscreen.dart';
 
-void main(){
+void main() {
   runApp(const TaskProject());
 }
 

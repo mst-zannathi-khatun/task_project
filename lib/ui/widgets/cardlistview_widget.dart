@@ -10,7 +10,7 @@ class CardListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 180,
+      height: 200,
       width: double.infinity,
       child: Card(
         elevation: 4,
@@ -26,14 +26,16 @@ class CardListViewWidget extends StatelessWidget {
               const SizedBox(height: 4,),
               const Text("date"),
               const SizedBox(height: 8,),
-              Row(
-                children: [
-                  const Chip(label: Text("New")),
-                  const Spacer(),
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
-                  const SizedBox(width: 8,),
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
-                ],
+              Expanded(
+                child: Row(
+                  children: [
+                    const Chip(label: Text("New")),
+                    const Spacer(),
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
+                    const SizedBox(width: 8,),
+                    IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
+                  ],
+                ),
               ),
             ],
           ),
