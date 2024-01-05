@@ -3,8 +3,12 @@ import '../utils/text_style.dart';
 
 class CardListViewWidget extends StatelessWidget {
   const CardListViewWidget({
-    Key? key,
+    Key? key, required this.headText, required this.descriptions, required this.date, required this.type, required this.onEditPressed, required this.onDeletePressed,
   }) : super(key: key);
+
+  final String headText, descriptions, date, type;
+  final VoidCallback onEditPressed;
+  final VoidCallback onDeletePressed;
 
 
   @override
@@ -20,20 +24,20 @@ class CardListViewWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Head Text For Checck", style: head1TextStyle,),
+              Text(headText, style: head1TextStyle,),
               const SizedBox(height: 8,),
-              const Text("A sign in attempt requires further verification because we did not recognize your device. To complete the sign in, enter the verification code on the unrecognized device."),
+              Text(descriptions),
               const SizedBox(height: 4,),
-              const Text("date"),
+               Text(date),
               const SizedBox(height: 8,),
               Expanded(
                 child: Row(
                   children: [
-                    const Chip(label: Text("New")),
+                    Chip(label: Text(type)),
                     const Spacer(),
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
+                    IconButton(onPressed: onEditPressed, icon: const Icon(Icons.edit)),
                     const SizedBox(width: 8,),
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
+                    IconButton(onPressed: onDeletePressed, icon: const Icon(Icons.delete)),
                   ],
                 ),
               ),

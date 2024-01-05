@@ -7,7 +7,6 @@ import '../task/completedtask_screen.dart';
 import '../task/createtask_screen.dart';
 import '../task/newtask_screen.dart';
 
-
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
 
@@ -29,7 +28,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     return Scaffold(
       appBar: taskAppBar(context),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor:primaryColor,
+        backgroundColor: primaryColor,
         unselectedItemColor: greyColor,
         selectedItemColor: Colors.white,
         showUnselectedLabels: true,
@@ -56,7 +55,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
         child: const Icon(Icons.add),
-        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateTaskScreen()));
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const CreateTaskScreen()));
         },
       ),
     );

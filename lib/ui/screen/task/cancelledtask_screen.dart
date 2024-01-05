@@ -16,10 +16,10 @@ class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              CardListViewWidget(),
-              SizedBox(height: 8,),
-              CardListViewWidget(),
-              SizedBox(height: 8,),
+              // CardListViewWidget(),
+              // SizedBox(height: 8,),
+              // CardListViewWidget(),
+              // SizedBox(height: 8,),
             ],
           ),
         ),

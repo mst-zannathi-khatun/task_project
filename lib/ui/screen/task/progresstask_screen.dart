@@ -15,11 +15,11 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
         padding: const EdgeInsets.all(4),
         child: SingleChildScrollView(
           child: Column(
-            children: const [
-              CardListViewWidget(),
-              SizedBox(height: 8,),
-              CardListViewWidget(),
-              SizedBox(height: 8,),
+            children:  [
+              // CardListViewWidget(),
+              // SizedBox(height: 8,),
+              // CardListViewWidget(),
+              // SizedBox(height: 8,),
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task_project/api/auth_utils.dart';
 import 'package:task_project/api/httpnetwork.dart';
 import 'package:task_project/api/urls.dart';
 import 'package:task_project/ui/screen/auth/setpassword_screen.dart';
@@ -37,8 +37,14 @@ class _LogInScreenState extends State<LogInScreen> {
     setState(() {});
     print(result);
     if (result != null && result['status'] == 'success') {
-      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-      await sharedPreferences.setString('token', result['token']);
+      AuthUtils.saveUserData(
+          result['data']['firstName'],
+          result['data']['lastName'],
+          result['token'],
+          result['data']['photo'],
+          result['data']['mobile'],
+          result['data']['email'],
+      );
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
@@ -103,7 +109,9 @@ class _LogInScreenState extends State<LogInScreen> {
               else
                 ElevatedButtonWidget(
                   onPressed: () async {
-                    if (_fromKey.currentState!.validate()) {}
+                    if (_fromKey.currentState!.validate()) {
+                      login();
+                    }
                   },
                 ),
               const SizedBox(

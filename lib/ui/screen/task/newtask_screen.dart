@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:task_project/api/httpnetwork.dart';
+import 'package:task_project/api/models/task_models.dart';
+import 'package:task_project/api/urls.dart';
+import 'package:task_project/ui/screen/component/snackbar_message_screen.dart';
 import '../../widgets/cardlistview_widget.dart';
-
+import '../component/topcard_Widget.dart';
 
 class NewTaskScreen extends StatefulWidget {
   const NewTaskScreen({super.key});
@@ -9,6 +13,28 @@ class NewTaskScreen extends StatefulWidget {
 }
 
 class _NewTaskScreenState extends State<NewTaskScreen> {
+  TaskModel newTaskmodel = TaskModel();
+  bool inProgress = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getAllNewTask();
+  }
+
+  Future<void> getAllNewTask() async {
+    inProgress = true;
+    setState(() {});
+    final response = await HTTPNetWorkUtils().getMethod(Urls.newTask);
+    if (response != null) {
+      newTaskmodel = TaskModel.fromJson(response);
+    } else {
+      showSnackBarMessage(context, "Unable to fetch new task! try again");
+    }
+    inProgress = false;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,24 +43,52 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 60,
                 width: double.infinity,
                 child: Row(
                   children: [
                     TopCardWidget(),
-                    SizedBox(width: 8,),
+                    SizedBox(
+                      width: 8,
+                    ),
                     TopCardWidget(),
-                    SizedBox(width: 8,),
+                    SizedBox(
+                      width: 8,
+                    ),
                     TopCardWidget(),
                   ],
                 ),
               ),
-              SizedBox(height: 8,),
-              CardListViewWidget(),
-              SizedBox(height: 8,),
-              CardListViewWidget(),
-              SizedBox(height: 8,),
+              const SizedBox(
+                height: 8,
+              ),
+              Expanded(
+                  child: inProgress
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : RefreshIndicator(
+                          onRefresh: () async {
+                            await getAllNewTask();
+                          },
+                          child: ListView.builder(
+                              itemCount: newTaskmodel.data?.length ?? 0,
+                              itemBuilder: (context, index) {
+                                return CardListViewWidget(
+                                  headText: newTaskmodel.data?[index].title ??
+                                      "Unknown",
+                                  descriptions:
+                                      newTaskmodel.data?[index].description ??
+                                          "Unknown",
+                                  date: newTaskmodel.data?[index].createdDate ??
+                                      "Unknown",
+                                  type: "New",
+                                  onDeletePressed: () {},
+                                  onEditPressed: () {},
+                                );
+                              }),
+                        ))
             ],
           ),
         ),
@@ -43,26 +97,4 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   }
 }
 
-class TopCardWidget extends StatelessWidget {
-  const TopCardWidget({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(child: Text("09")),
-            Expanded(child: Text("Completed")),
-          ],
-        ),
-      ),
-    );
-  }
-}

@@ -5,13 +5,19 @@ void main() {
   runApp(const TaskProject());
 }
 
-class TaskProject extends StatelessWidget {
-  const TaskProject({super.key});
+class TaskProject extends StatefulWidget {
+  const TaskProject({Key? key}) : super(key: key);
+  static GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
+  @override
+  State<TaskProject> createState() => _TaskProjectState();
+}
 
+class _TaskProjectState extends State<TaskProject> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashScreen(),
+    return MaterialApp(
+      navigatorKey: TaskProject.globalKey,
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
